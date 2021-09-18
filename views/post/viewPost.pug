@@ -1,57 +1,48 @@
 doctype html
 html(lang='en')
     head
-        //favicon
+        //- favicon
         //- link(rel='icon' href='/images/logo_black.png' type="image/png")
-        //- google font set up
-        link(rel="preconnect" href="https://fonts.googleapis.com")
-        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-        link(href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet")
         
         //bootstrap font setup
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
-
-        //google auth setup
-        script(async, defer,src="https://apis.google.com/js/platform.js")
-
-        //jquery setup
+        
+        //- jquery setup
         script(src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous")
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous")
         
-        //custom stylesheet
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        //- custom stylesheet
+        link(rel='stylesheet', href='/stylesheets/post/viewPost.css')
 
-        //custom javascript
-        script(src='/javascripts/login.js')
-        script(src='/javascripts/index.js')
+        //- custom javascript
         
-        //bootstrap cdn
+        //- bootstrap cdn
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous")
         
-        //meta tag
+        //- meta tag
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(name='google-signin-client_id', content='1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com')
-    body(onload="subsistenceTypeWriter()")
-        .g-signin2(data-onsuccess="onSignIn")
-        a(href="#" onclick="signOut();") Sign out
-        .container-fluid
-            .row.hero-row
-                .col-md-2
-                .col-md-4
-                    img.hero(src="/images/hero/duck.jpg")
-                .col-md-5.hero-title
-                    h1#subsistence
-                    h1#farmer
+    body
+        .container
             .row
                 .col-md-3
                 .col-md-6
-                    a.card.post(href="/demo-post")
+                    .card.post
                         .card-body
                             h3.post-title 買地瓜贈班蘭葉，與您分享好滋味
                             p.post-price 黃肉地瓜 $45/斤
                             p.post-date Sept 5 2021
-                            p.post-detail 這期的地瓜也很好吃，早上吃了兩碗當早餐。地瓜很甜，糖不用加太多，再加入班蘭葉，糖水就很有風味。
+                            p.post-preview 這期的地瓜也很好吃，早上吃了兩碗當早餐。地瓜很甜，糖不用加太多，再加入班蘭葉，糖水就很有風味。
+                            p.post-detail 番薯糖水作法：
+                            ol
+                                li 地瓜削皮切塊。
+                                li 班蘭葉清洗剪成段 (放的進鍋子即可) (小心葉背有刺，清洗時要小心)。
+                                li 地瓜約佔水 1/3，班蘭葉鋪上去。
+                                li 邊煮邊略翻一下班蘭葉。
+                                li 用筷子刺地瓜，煮到能穿透即可。
+                                li 將班蘭葉撈起來。
+                                li 在鍋面略灑兩層薄糖 (二砂)(或二砂、黑糖各半)。
+                                li 冰涼更佳。(也可加入綠豆、薑)
                             img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
                 .col-md-3
     
