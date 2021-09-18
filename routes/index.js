@@ -27,7 +27,11 @@ router.get('/demo-post', function(req, res, next) {
 });
 
 router.get('/enterData', function(req, res, next) {
-  res.render('enterData', { title: 'Express' });
+  res.render('enterData');
+});
+
+router.get('/userInfo', function(req, res, next) {
+  res.render('userInfo');
 });
 
 
