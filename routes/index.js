@@ -34,5 +34,9 @@ router.get('/userInfo', function(req, res, next) {
   res.render('userInfo');
 });
 
+router.get('/editInfo', function(req, res, next) {
+  res.render('editUser');
+});
+
 
 module.exports = router;
