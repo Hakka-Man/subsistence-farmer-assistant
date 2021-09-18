@@ -1,4 +1,11 @@
 .navbar {
     background-color: #FFFAE5;
-    padding-bottom: 30px;
+}
+
+.navbar-brand img {
+    margin-top: -10px;
+}
+
+.nav-link {
+    font-size: 15px;
 }
