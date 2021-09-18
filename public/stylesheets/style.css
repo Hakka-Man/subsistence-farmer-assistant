@@ -1,7 +1,9 @@
+:root {
+    --nav-orange:#FFE6B0;
+}
+
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    /* background-color: #F5F5F5; */
 }
 
 a {
@@ -15,10 +17,12 @@ a {
 
 .hero-row {
     margin-bottom: 8vh;
+
 }
 
 .hero-title {
     margin-top: 120px;
+    background-color: #DFEBFE;
 }
 
 .hero-row h1 {
@@ -26,9 +30,13 @@ a {
     font-weight: 900;
 }
 
+#subsistence {
+    margin-top: 80px;
+}
+
 .card {
     border: none !important;
-    background-color: #FFFAE5;
+    background-color: var(--nav-orange) !important;
 }
 
 .post {

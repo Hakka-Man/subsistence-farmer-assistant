@@ -1,0 +1,11 @@
+.navbar {
+    background-color: var(--nav-orange);
+}
+
+.navbar-brand img {
+    margin-top: -10px;
+}
+
+.nav-link {
+    font-size: 15px;
+}

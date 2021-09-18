@@ -11,10 +11,14 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.16.4",
+<<<<<<< HEAD
     "google-auth-library": "^7.9.2",
+=======
+    "firebase": "^9.0.2",
+>>>>>>> 850a7d34c6ee98f8edde7e22230d5e4cd7c240ae
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "pug": "^3.0.2"
+    "pug": "2.0.0-beta11"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
