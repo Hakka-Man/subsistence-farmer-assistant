@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none !important;
+}
+
+.post {
+    width: 100%;
+}
+
+.post-title {
+    color: black;
+}
+
+
+.post-price {
+    color: black;
+}
+
+.post-detail {
+    color: black;
+}
+
+.card-img-top {
+    width: 100%; /* width of container */
+    height: 150px; /* height of container */
+    object-fit: cover;
+    object-position: 20% 70%; /* try 20px 10px */
 }

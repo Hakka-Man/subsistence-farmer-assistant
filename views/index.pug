@@ -13,7 +13,8 @@ html(lang='en')
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous")
         
         //custom stylesheet
-        
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
         //custom javascript
         
         //bootstrap cdn
@@ -22,5 +23,15 @@ html(lang='en')
         //meta tag
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
     body
-        
+        .container
+            .row
+                .col-md-3
+                .col-md-6
+                    a.card.post(href="/hi")
+                        .card-body
+                            h3.post-title 買地瓜贈班蘭葉，與您分享好滋味
+                            p.post-price 黃肉地瓜 $45/斤
+                            p.post-detail 這期的地瓜也很好吃，早上吃了兩碗當早餐。地瓜很甜，糖不用加太多，再加入班蘭葉，糖水就很有風味。
+                            img.card-img-top(src="/images/ginger.jpg" alt="Card image cap")
+                .col-md-3
     
