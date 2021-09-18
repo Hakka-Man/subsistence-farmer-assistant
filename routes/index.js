@@ -1,5 +1,5 @@
 var express = require('express');
-var app = require('/app')
+//var app = require('/app')
 var router = express.Router();
 
 /* GET home page. */
@@ -11,7 +11,7 @@ router.post('/', (req, res)=>{
     let token = req.body.token;
     console.log(token);
     async function verify() {
-        const ticket = await app.client.verifyIdToken({
+        const ticket = await client.verifyIdToken({
             idToken: token,
             audience: CLIENT_ID,
         });
