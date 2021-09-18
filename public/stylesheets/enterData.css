@@ -1,0 +1,33 @@
+.main{
+    height: auto;
+}
+
+.row{
+    height:auto;
+}
+
+.body-container{
+    width: 100%;
+    height: 100px;
+}
+
+.data-input{
+    width: 80vw;
+}
+
+.input-title{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.coverHero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("/images/enter-data-cover.jpg");
+    /* Set a specific height */
+    height: 36vh;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
