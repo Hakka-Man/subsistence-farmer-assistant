@@ -1,7 +1,5 @@
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    /* background-color: #F5F5F5; */
 }
 
 a {
@@ -28,7 +26,7 @@ a {
 
 .card {
     border: none !important;
-    background-color: #FFFAE5;
+    background-color: #FFFAE5 !important;
 }
 
 .post {
