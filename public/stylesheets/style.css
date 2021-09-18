@@ -1,10 +1,34 @@
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /* background-color: #F5F5F5; */
 }
 
 a {
   text-decoration: none !important;
+}
+
+.hero {
+    width: 100%;
+    height: auto;
+}
+
+.hero-row {
+    margin-bottom: 8vh;
+}
+
+.hero-title {
+    margin-top: 120px;
+}
+
+.hero-row h1 {
+    font-family: 'Grechen Fuemen', cursive;
+    font-weight: 900;
+}
+
+.card {
+    border: none !important;
+    background-color: #FFFAE5;
 }
 
 .post {
@@ -14,7 +38,6 @@ a {
 .post-title {
     color: black;
 }
-
 
 .post-price {
     color: black;
