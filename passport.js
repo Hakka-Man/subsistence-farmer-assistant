@@ -8,8 +8,8 @@ module.exports = function(passport){
         clientSecret: '3b1n7pkb8L2orFiwMUyndNfm',
         callbackURL: '/auth/google/callback'
         },
-        async (accessToken, refreshToken, profile, done) => {
-        console.log(profile)
+        async (accessToken, refreshToken, done) => {
+        console.log("Done")
         }
     )
   )
