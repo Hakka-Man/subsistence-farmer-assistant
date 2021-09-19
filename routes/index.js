@@ -48,7 +48,7 @@ router.post('/submit', async function (req, res) {
       ], function(error, obj) {
           if (err) throw err;
       });
-      res.redirect("/test");
+      res.redirect("/");
   }else {
       res.redirect("/");
   }
