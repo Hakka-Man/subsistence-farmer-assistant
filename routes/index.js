@@ -38,5 +38,14 @@ router.get('/editInfo', function(req, res, next) {
   res.render('editUser');
 });
 
+router.get('/orders', function(req, res, next) {
+  res.render('orders');
+});
+
+router.get('/dashboard', function(req, res, next) {
+  res.render('buyerDashboard');
+});
+
+
 
 module.exports = router;
