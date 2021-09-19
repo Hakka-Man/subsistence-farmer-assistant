@@ -7,6 +7,7 @@ module.exports = function(passport){
         clientID: '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com',
         clientSecret: '3b1n7pkb8L2orFiwMUyndNfm',
         callbackURL: 'https://farmerassistant.herokuapp.com/auth/google/callback'
+        // callbackURL: 'http://localhost:3000/auth/google/callback'
         },
         async (accessToken, refreshToken ,profile,done) => {
             const newUser = {
