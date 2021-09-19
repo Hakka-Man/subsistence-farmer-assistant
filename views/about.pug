@@ -35,7 +35,7 @@ html(lang='en')
         meta(name='google-signin-client_id', content='1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com')
     body(onload="ourTypeWriter()")
         include common/nav.pug
-        .container-fluid
+        .container-fluid(style="margin-top: 50px;")
             .row.hero-row
                 .col-md-2
                 .col-md-4
@@ -43,9 +43,9 @@ html(lang='en')
                 .col-md-4.hero-title
                     h1#our
                     h1#story
-        row(style="margin-bottom: 200px;")
+        row
             .col-md-3
-            .col-md-6
+            .col-md-6(style="margin-bottom: 150px;")
                 h1.about-title About
                 .card
                     .card-body

@@ -36,13 +36,14 @@ html(lang='en')
     body(onload="subsistenceTypeWriter()")
         include common/nav.pug
         .container-fluid
-            .row.hero-row
-                .col-md-2
-                .col-md-4
+            .row.hero-row.index-hero
+                .col-md-1
+                .col-md-5
                     img.hero(src="/images/hero/duck.jpg")
-                .col-md-4.hero-title
+                .col-md-5.hero-title
                     h1#subsistence
                     h1#farmer
+                    h1#buy
             .row(style="margin-bottom: 200px;")
                 .col-md-3
                 .col-md-6
@@ -57,4 +58,4 @@ html(lang='en')
                                 p.post-detail #{val.imgurl}
                                 img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
                 .col-md-3
-    
+        include common/footer.pug

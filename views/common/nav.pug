@@ -34,24 +34,28 @@ html(lang='en')
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
     body
         nav.navbar.navbar-expand-lg.navbar-light
-            a.navbar-brand(href="/")
-                img(src="/images/flavicon/vegsite.png" width=auto height="50px" class="d-inline-block align-top" alt="")
-            ul.navbar-nav.navbar-right
+            a.brand-container(href="/")
+                img.brand-img(src="/images/flavicon/vegsite.png" width=auto height="80px" alt="")
+            ul.navbar-nav.ml-auto.nav-right
                 li.nav-item
                     a.nav-link(href="/about") About
-                li.nav-item
-                    a.nav-link(href="/orders") Your Order
-                li.nav-item
-                    a.nav-link(href="/dashboard") Dashboard
-                li.nav-item
-                    a.nav-link(href="/profile") Profile
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/orders") Your Order
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/dashboard") Dashboard
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/enterData") Add Produce
                 if loggedin
                     li.nav-item
                         a.nav-link(href='/profile') Hi&nbsp; #{name}
                 else
                     li.nav-item
                         a.nav-link(href="/auth/google") Sign In
-                li.nav-item
-                    a.nav-link(href="/auth/logout" onclick="signOut();") Log Out
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/auth/logout" onclick="signOut();") Log Out
 //- .g-signin2(data-onsuccess="onSignIn")
 //- a(href="#" ) Sign out

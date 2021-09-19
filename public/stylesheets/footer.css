@@ -1,0 +1,8 @@
+.footer-distributed{
+    background-color: var(--nav-orange);
+    height: 10vh;
+}
+
+.footer-left{
+    padding: 5px;
+}
