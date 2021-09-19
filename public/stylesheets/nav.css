@@ -1,5 +1,5 @@
 .navbar {
-    background-color: var(--nav-orange);
+    background-color: var(--nav-orange) !important;
 }
 
 .navbar-brand img {
