@@ -16,10 +16,6 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var app = express();
 
-//Call body-parser for POST data handling
-var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-
 //Google Auth
 //const CLIENT_ID = '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com';
 //const client = new OAuth2Client('1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com');
@@ -31,54 +27,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //passport Middleware
 
 
-//CockroachDB
-const Sequelize = require("sequelize-cockroachdb");
- 
-// For secure connection to CockroachDB
-const fs = require('fs');
- 
-// Connect to CockroachDB through Sequelize
-var sequelize = new Sequelize({
-  dialect: "postgres",
-  username: "alan",
-  password: "haaxEmGrSBlZII6S",
-  host: "free-tier.gcp-us-central1.cockroachlabs.cloud",
-  port: 26257,
-  database: "subsistance-farmer-3652.bank",
-  dialectOptions: {
-    ssl: {
-      
-      //For secure connection:
-      ca: fs.readFileSync('certs/cc-ca.crt')
-              .toString()
-    },
-  },
-  logging: false, 
-});
-
-//Define the table we'll be working with in CockroachDB
-
-const Produce = sequelize.define("produce", {
-  produceName: {
-      type: Sequelize.TEXT,
-  },
-  price: {
-      type: Sequelize.INTEGER,
-  },
-  slogan: {
-      type: Sequelize.TEXT,
-  },
-  discription: {
-    type: Sequelize.TEXT,
-  },
-  recipes: {
-    type: Sequelize.TEXT,
-  },
-
-});
-
 var app = express();
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -122,6 +74,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
 

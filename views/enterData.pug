@@ -35,16 +35,18 @@ html(lang='en')
             .row
                 .col.md-12.title Upload Your Produce!
                 .col-md-12.body-container
-                    .input-title Produce Name
-                    input.data-input(type='text' placeholder='Enter your produce name...')
-                    .input-title Price
-                    input.data-input(type='text' placeholder='Enter your produce price...')
-                    .input-title Slogan
-                    input.data-input(type='text' placeholder='Enter slogan for your produce...')
-                    .input-title Discription
-                    input.data-input(type='text' placeholder='Discribe your produce...')
-                    .input-title Recipes
-                    input.data-input(type='text' placeholder='Any recommend recipes?')
+                    form(id="info" action="/submit" method="post")
+                        .input-title Produce Name
+                        input.data-input(type='text' name="produceName" placeholder='Enter your produce name...')
+                        .input-title Price
+                        input.data-input(type='text' name="price" placeholder='Enter your produce price...')
+                        .input-title Slogan
+                        input.data-input(type='text' name="slogan" placeholder='Enter slogan for your produce...')
+                        .input-title Discription
+                        input.data-input(type='text' name="discription" placeholder='Discribe your produce...')
+                        .input-title Recipes
+                        input.data-input(type='text' name="recipes" placeholder='Any recommend recipes?')
+                        input(type="submit" value="Submit")
                     .col-md-12.button-container
                         button.submit-button Submit!
                         
