@@ -6,18 +6,27 @@ module.exports = function(passport){
     passport.use(new GoogleStrategy({
         clientID: '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com',
         clientSecret: '3b1n7pkb8L2orFiwMUyndNfm',
-        callbackURL: 'http://localhost:3000/auth/google/callback'
+        callbackURL: '/auth/google/callback'
         },
         async (accessToken, refreshToken ,profile,done) => {
-            console.log(profile);
+            const newUser = {
+                googleId: profile.id,
+                displaceName: profile.displayName,
+                firstName: profile.name.givenName,
+                lastName: profile.name.familyName,
+                image: profile.photos[0].value,
+                // email: profile.emails[0].value
+            }
+            console.log(profile)
+            done(null, null)
         }
     )
   )
     passport.serializeUser((user, done) => {
-    done(null, user.id);
+        done(null, user.id);
     });
-  
+
     passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user))
-  })
+        User.findById(id, (err, user) => done(err, user))
+    })
 }
