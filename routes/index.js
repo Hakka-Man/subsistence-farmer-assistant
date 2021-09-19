@@ -35,7 +35,6 @@ router.post('/submit', async function (req, res) {
       Produce.sync({
           force: false,
       })
-      await Produce.deleteAll();
       await Produce.bulkCreate([
           {
           produceName: req.body.produceName,
