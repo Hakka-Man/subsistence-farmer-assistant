@@ -14,19 +14,7 @@ require('./passport')(passport)
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var app = express();
-
-//Google Auth
-//const CLIENT_ID = '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com';
-//const client = new OAuth2Client('1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com');
-
-
-//Sessions
-
-
-//passport Middleware
-
-
+var enterDataRouter = require('./routes/enterData');
 var app = express();
 
 var bodyParser = require("body-parser");
@@ -58,6 +46,7 @@ app.use(passport.session())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/submit', enterDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
