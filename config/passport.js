@@ -1,6 +1,7 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
 const User = require('../models/User')
+const CockroachUser = require('../models/CockroachUser')
 
 module.exports = function(passport){
     passport.use(new GoogleStrategy({
@@ -23,7 +24,6 @@ module.exports = function(passport){
                     done(null, user)
                 } else{
                     user = await User.create(newUser)
-                    done(null, user)
                 }
             } catch (err){
                 console.error(err)

@@ -35,20 +35,6 @@ router.get('/about', function(req, res, next) {
   res.render('about');
 });
 
-// router.get('/test', (req, res) => {
-//     //Get our data from CockroachDB
-//     Produce.sync({
-//          force:false,
-//     })
-//     .then(function() {
-//        return Produce.findAll();
-//     })
-//     .then(function (produce) {
-//         //Render output from CockroachDB using our PUG template
-//         res.render('test', { produce : produce });
-//     })
-// });
-
 router.get('/test', async function (req, res) {
     Produce.sync({
          force:false,
@@ -106,13 +92,8 @@ router.post('/submit', function (req, res) {
       });
 
       //Tell them it was a success
-      // res.send('Submitted Successfully!<br /> Name:  ' + fromName + '<br />Price:  ' + fromPrice);
       console.log('Submitted Successfully!<br /> Name:  ' + fromName + '<br />Price:  ' + fromPrice)
       res.redirect("test");
 });
-
-
-
-
 
 module.exports = router;
