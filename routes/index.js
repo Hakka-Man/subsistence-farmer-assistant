@@ -4,6 +4,7 @@ const{ ensureAuth, ensureGuest} = require('../middleware/auth')
 
 const indexController = require('../controller/index')
 var Produce = require('../models/produce.js')
+var User = require('../models/User')
 
 
 /* GET home page. */
@@ -27,55 +28,66 @@ router.get('/test', async function (req, res) {
 })
 
 router.post('/submit', async function (req, res) {
-    Produce.sync({
-        force: false,
-    })
-    await Produce.bulkCreate([
-        {
-        produceName: req.body.produceName,
-        price: req.body.price,
-        slogan: req.body.slogan,
-        discription: req.body.discription,
-        recipes: req.body.recipes,
-        },
-    ]);
-    res.redirect("/test");
-})
-
-router.post('/submit', function (req, res) {
-
-  //Get our values submitted from the form
-  var fromName = req.body.produceName;
-  var fromPrice = req.body.price;
-  var fromslogan = req.body.slogan;
-  var fromDiscription = req.body.discription;
-  var fromRecipes = req.body.recipes;
-
-  //Add our POST data to CockroachDB via Sequelize
-  Produce.sync({
-      force: false,
-  })
-      .then(function () {
-      // Insert new data into Produce table
-      return Produce.bulkCreate([
+    if(req.isAuthenticated()){
+      var displayName = req.user.displayName;
+      var isAuthenticated = true;
+      var image = req.user.image;
+      Produce.sync({
+          force: false,
+      })
+      await Produce.deleteAll();
+      await Produce.bulkCreate([
           {
-          produceName: fromName,
-          price: fromPrice,
-          slogan: fromslogan,
-          discription: fromDiscription,
-          recipes: fromRecipes,
+          produceName: req.body.produceName,
+          price: req.body.price,
+          slogan: req.body.slogan,
+          discription: req.body.discription,
+          recipes: req.body.recipes,
+          seller: displayName
           },
       ]);
-      })
+      res.redirect("/test");
+  }else {
+      res.redirect("/");
+  }
 
-      //Error handling for database errors
-      .catch(function (err) {
-      console.error("error: " + err.message);
-      });
 
-      //Tell them it was a success
-      console.log('Submitted Successfully!<br /> Name:  ' + fromName + '<br />Price:  ' + fromPrice)
-      res.redirect("test");
-});
+})
+
+// router.post('/submit', function (req, res) {
+//
+//   //Get our values submitted from the form
+//   var fromName = req.body.produceName;
+//   var fromPrice = req.body.price;
+//   var fromslogan = req.body.slogan;
+//   var fromDiscription = req.body.discription;
+//   var fromRecipes = req.body.recipes;
+//
+//   //Add our POST data to CockroachDB via Sequelize
+//   Produce.sync({
+//       force: false,
+//   })
+//       .then(function () {
+//       // Insert new data into Produce table
+//       return Produce.bulkCreate([
+//           {
+//           produceName: fromName,
+//           price: fromPrice,
+//           slogan: fromslogan,
+//           discription: fromDiscription,
+//           recipes: fromRecipes,
+//           },
+//       ]);
+//       })
+//
+//       //Error handling for database errors
+//       .catch(function (err) {
+//       console.error("error: " + err.message);
+//       });
+//
+//       //Tell them it was a success
+//       console.log('Submitted Successfully!<br /> Name:  ' + fromName + '<br />Price:  ' + fromPrice)
+//       res.redirect("test");
+// });
 
 module.exports = router;

@@ -36,12 +36,14 @@ const Produce = sequelize.define("produce", {
       type: Sequelize.TEXT,
   },
   discription: {
-    type: Sequelize.TEXT,
+      type: Sequelize.TEXT,
   },
   recipes: {
-    type: Sequelize.TEXT,
+      type: Sequelize.TEXT,
   },
-
+  seller: {
+      type: Sequelize.TEXT,
+  }
 });
 
 module.exports = Produce
