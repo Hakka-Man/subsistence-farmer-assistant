@@ -14,6 +14,7 @@ html(lang='en')
         
         //- custom stylesheet
         link(rel='stylesheet', href='/stylesheets/post/viewPost.css')
+        link(rel='stylesheet', href='/stylesheets/nav.css')
 
         //- custom javascript
         
@@ -23,7 +24,8 @@ html(lang='en')
         //- meta tag
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
     body
-        .container
+        include ../common/nav.pug
+        .container-fluid
             .row
                 .col-md-3
                 .col-md-6
