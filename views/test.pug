@@ -1,0 +1,21 @@
+doctype=html
+
+html
+   head
+      title Your Contacts
+   body
+    h1 Contact List
+    table(style='width:100%', border='1')
+      tr
+         th produceName
+         th price
+         th slogan
+         th discription
+         th recipes
+      each val in produce
+         tr
+            td #{val.produceName} 
+            td #{val.price}
+            td #{val.slogan}
+            td #{val.discription}
+            td #{val.recipes}
