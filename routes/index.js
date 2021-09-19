@@ -58,6 +58,21 @@ router.get('/test', async function (req, res) {
     res.render('test', { produce : produce});
 })
 
+router.post('/submit', async function (req, res) {
+    Produce.sync({
+        force: false,
+    })
+    await Produce.bulkCreate([
+        {
+        produceName: req.body.produceName,
+        price: req.body.price,
+        slogan: req.body.slogan,
+        discription: req.body.discription,
+        recipes: req.body.recipes,
+        },
+    ]);
+    res.redirect("/test");
+})
 
 router.post('/submit', function (req, res) {
 
