@@ -25,25 +25,16 @@ var sequelize = new Sequelize({
 });
 
 
-const Produce = sequelize.define("produce", {
-  produceName: {
+const CockroachUser = sequelize.define("cockroachUser", {
+    googleId: {
       type: Sequelize.TEXT,
-  },
-  price: {
-      type: Sequelize.INTEGER,
-  },
-  slogan: {
-      type: Sequelize.TEXT,
-  },
-  discription: {
-      type: Sequelize.TEXT,
-  },
-  recipes: {
-      type: Sequelize.TEXT,
-  },
-  seller: {
-      type: Sequelize.TEXT,
-  }
+    },
+    displayName: {
+      type: Sequelize.TEXT
+    },
+    image: {
+      type: Sequelize.TEXT
+    }
 });
 
-module.exports = Produce
+module.exports = CockroachUser
