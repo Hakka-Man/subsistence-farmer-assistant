@@ -1,11 +1,14 @@
 .navbar {
     background-color: var(--nav-orange);
-}
-
-.navbar-brand img {
-    margin-top: -10px;
+    height: 10vh;
+    flex-flow: row nowrap;
 }
 
 .nav-link {
-    font-size: 15px;
+    font-size: 20px;
+    padding: 0px 20px!important;
+}
+
+.nav-right{
+    margin-right: 15px;
 }
