@@ -42,6 +42,8 @@ router.post('/submit', async function (req, res) {
           slogan: req.body.slogan,
           discription: req.body.discription,
           recipes: req.body.recipes,
+          seller: displayName,
+          imgurl: req.body.imgurl,
           }
       ], function(error, obj) {
           if (err) throw err;

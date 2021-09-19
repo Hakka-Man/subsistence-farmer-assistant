@@ -47,12 +47,14 @@ html(lang='en')
                 .col-md-3
                 .col-md-6
                     h1.produce-title All Produce
-                    a.card.post(href="/demo-post")
-                        .card-body
-                            h3.post-title 買地瓜贈班蘭葉，與您分享好滋味
-                            p.post-price 黃肉地瓜 $45/斤
-                            p.post-date Sept 5 2021
-                            p.post-detail 這期的地瓜也很好吃，早上吃了兩碗當早餐。地瓜很甜，糖不用加太多，再加入班蘭葉，糖水就很有風味。
-                            img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
+                    each val in produce
+                        a.card.post(href="/demo-post")
+                            .card-body
+                                h3.post-title #{val.produceName} 
+                                p.post-price #{val.price}
+                                //- p.post-date Sept 5 2021
+                                p.post-detail #{val.discription}
+                                p.post-detail #{val.imgurl}
+                                img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
                 .col-md-3
     

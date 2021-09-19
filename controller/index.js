@@ -1,8 +1,9 @@
 var isAuthenticated = false;
 var image = null;
 var displayName = null;
+var Produce = require('../models/produce.js')
 
-exports.index = function(req, res, next) {
+exports.index = async function(req, res, next) {
   if(req.isAuthenticated()){
     displayName = req.user.displayName;
     isAuthenticated = true;
@@ -12,10 +13,15 @@ exports.index = function(req, res, next) {
     isAuthenticated = false;
     image = null;
   }
+  Produce.sync({
+       force:false,
+  })
+  var produce = await Produce.findAll();
   res.render('index', {
     loggedin: isAuthenticated,
     name: displayName,
     image: image,
+    produce: produce,
   });
 }
 

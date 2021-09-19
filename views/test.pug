@@ -12,7 +12,8 @@ html
          th slogan
          th discription
          th recipes
-         //- th seller
+         th seller
+         th url
       each val in produce
          tr
             td #{val.produceName} 
@@ -20,4 +21,5 @@ html
             td #{val.slogan}
             td #{val.discription}
             td #{val.recipes}
-            //- td #{val.seller}
+            td #{val.seller}
+            td #{val.imgurl}
