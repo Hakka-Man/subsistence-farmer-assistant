@@ -8,16 +8,25 @@ module.exports = function(passport){
         clientSecret: '3b1n7pkb8L2orFiwMUyndNfm',
         callbackURL: '/auth/google/callback'
         },
-        async (accessToken, refreshToken, done) => {
-        console.log("Done")
+        async (accessToken, refreshToken ,profile,done) => {
+            const newUser = {
+                googleId: profile.id,
+                displaceName: profile.displayName,
+                firstName: profile.name.givenName,
+                lastName: profile.name.familyName,
+                image: profile.photos[0].value,
+                // email: profile.emails[0].value
+            }
+            console.log(profile)
+            done(null, null)
         }
     )
   )
     passport.serializeUser((user, done) => {
-    done(null, user.id);
+        done(null, user.id);
     });
-  
+
     passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user))
-  })
+        User.findById(id, (err, user) => done(err, user))
+    })
 }

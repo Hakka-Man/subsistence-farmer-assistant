@@ -8,7 +8,7 @@ const session = require('express-session')
 //mongoose for mongodb
 var mongoose = require('mongoose')
 
-// Passport 
+// Passport
 require('./passport')(passport)
 
 var indexRouter = require('./routes/index');
