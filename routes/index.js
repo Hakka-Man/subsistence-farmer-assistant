@@ -30,7 +30,7 @@ router.get('/enterData', function(req, res, next) {
   res.render('enterData');
 });
 
-router.get('/userInfo', function(req, res, next) {
+router.get('/profile', function(req, res, next) {
   res.render('userInfo');
 });
 
@@ -44,6 +44,10 @@ router.get('/orders', function(req, res, next) {
 
 router.get('/dashboard', function(req, res, next) {
   res.render('buyerDashboard');
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('about');
 });
 
 
