@@ -1,15 +1,20 @@
 var createError = require('http-errors');
 var express = require('express');
+var dotenv = require('dotenv')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport')
 const session = require('express-session')
+const connectDB = require('./config/db')
 //mongoose for mongodb
 var mongoose = require('mongoose')
 
+//load config
+dotenv.config({ path: './config/config.env'})
+
 // Passport
-require('./passport')(passport)
+require('./config/passport')(passport)
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,6 +22,7 @@ var authRouter = require('./routes/auth');
 var enterDataRouter = require('./routes/enterData');
 var app = express();
 
+connectDB()
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
