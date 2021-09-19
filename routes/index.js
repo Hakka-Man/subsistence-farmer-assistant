@@ -42,8 +42,10 @@ router.post('/submit', async function (req, res) {
           slogan: req.body.slogan,
           discription: req.body.discription,
           recipes: req.body.recipes,
-          },
-      ]);
+          }
+      ], function(error, obj) {
+          if (err) throw err;
+      });
       res.redirect("/test");
   }else {
       res.redirect("/");
