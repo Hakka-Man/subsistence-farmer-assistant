@@ -52,7 +52,7 @@ exports.post = function(req, res, next) {
       isAuthenticated = false;
       image = null;
     }
-    res.render('post/viewpost', {
+    res.render('viewpost', {
       loggedin: isAuthenticated,
       name: displayName,
       image: image,
