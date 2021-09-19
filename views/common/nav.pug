@@ -46,6 +46,9 @@ html(lang='en')
                         a.nav-link(href="/dashboard") Dashboard
                 if loggedin
                     li.nav-item
+                        a.nav-link(href="/enterData") Add Produce
+                if loggedin
+                    li.nav-item
                         a.nav-link(href='/profile') Hi&nbsp; #{name}
                 else
                     li.nav-item
