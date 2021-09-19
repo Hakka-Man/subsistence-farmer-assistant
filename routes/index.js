@@ -1,39 +1,21 @@
 var express = require('express');
 var router = express.Router();
+const{ ensureAuth, ensureGuest} = require('../middleware/auth')
+
+const indexController = require('../controller/index')
 var Produce = require('../models/produce.js')
 
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-});
+router.get('/', indexController.index);
+router.get('/demo-post', indexController.post);
+router.get('/profile', indexController.profile);
+router.get('/enterData', indexController.enterData);
+router.get('/editInfo', indexController.editUser);
+router.get('/orders', indexController.orders);
+router.get('/dashboard', indexController.dashboard);
+router.get('/about', indexController.about);
 
-router.get('/demo-post', function(req, res, next) {
-    res.render('post/viewpost')
-});
-
-router.get('/enterData', function(req, res, next) {
-  res.render('enterData');
-});
-
-router.get('/profile', function(req, res, next) {
-  res.render('userInfo');
-});
-
-router.get('/editInfo', function(req, res, next) {
-  res.render('editUser');
-});
-
-router.get('/orders', function(req, res, next) {
-  res.render('orders');
-});
-
-router.get('/dashboard', function(req, res, next) {
-  res.render('buyerDashboard');
-});
-
-router.get('/about', function(req, res, next) {
-  res.render('about');
-});
 
 // router.get('/test', (req, res) => {
 //     //Get our data from CockroachDB

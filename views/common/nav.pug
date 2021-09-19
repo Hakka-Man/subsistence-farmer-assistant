@@ -24,6 +24,11 @@ html(lang='en')
         
         //bootstrap cdn
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+
+        script.
+            var loggedin = #{loggedin}
+            console.log(loggedin)
+            var name = "#{name}"
         //meta tag
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
     body
@@ -39,8 +44,12 @@ html(lang='en')
                     a.nav-link(href="/dashboard") Dashboard
                 li.nav-item
                     a.nav-link(href="/profile") Profile
-                li.nav-item
-                    a.nav-link(href="/auth/google") Sign In
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href='/profile') Hi&nbsp; #{name}
+                else
+                    li.nav-item
+                        a.nav-link(href="/auth/google") Sign In
                 li.nav-item
                     a.nav-link(href="/auth/logout" onclick="signOut();") Log Out
 //- .g-signin2(data-onsuccess="onSignIn")
