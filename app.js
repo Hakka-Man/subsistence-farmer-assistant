@@ -3,18 +3,33 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const passport = require('passport')
+const session = require('express-session')
+//mongoose for mongodb
+var mongoose = require('mongoose')
+
+// Passport 
+require('./passport')(passport)
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
+var app = express();
 
 //Call body-parser for POST data handling
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 //Google Auth
-const {OAuth2Client} = require('google-auth-library');
-const CLIENT_ID = '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com';
-const client = new OAuth2Client('1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com');
+//const CLIENT_ID = '1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com';
+//const client = new OAuth2Client('1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com');
+
+
+//Sessions
+
+
+//passport Middleware
+
 
 //CockroachDB
 const Sequelize = require("sequelize-cockroachdb");
@@ -34,7 +49,7 @@ var sequelize = new Sequelize({
     ssl: {
       
       //For secure connection:
-      ca: fs.readFileSync('/cc-ca.crt')
+      ca: fs.readFileSync('certs/cc-ca.crt')
               .toString()
     },
   },
@@ -64,9 +79,11 @@ const Produce = sequelize.define("produce", {
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -74,8 +91,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Sessions
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}))
+
+
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
