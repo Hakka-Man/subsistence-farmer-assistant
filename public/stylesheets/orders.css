@@ -1,0 +1,11 @@
+.card {
+    background-color: var(--nav-orange) !important;
+    border: none !important;
+}
+
+.order-title {
+    font-family: 'Grechen Fuemen', cursive;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+}

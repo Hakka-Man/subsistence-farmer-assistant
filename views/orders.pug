@@ -20,12 +20,10 @@ html(lang='en')
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous")
         
         //custom stylesheet
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/orders.css')
         link(rel='stylesheet', href='/stylesheets/color.css')
 
         //custom javascript
-        script(src='/javascripts/login.js')
-        script(src='/javascripts/index.js')
         
         //bootstrap cdn
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous")
@@ -33,26 +31,17 @@ html(lang='en')
         //meta tag
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(name='google-signin-client_id', content='1030812775063-voaa2nmetvaq5bgs4g9ln6ntmmls9t13.apps.googleusercontent.com')
-    body(onload="subsistenceTypeWriter()")
+    body
         include common/nav.pug
-        .container-fluid
-            .row.hero-row
-                .col-md-2
-                .col-md-4
-                    img.hero(src="/images/hero/duck.jpg")
-                .col-md-4.hero-title
-                    h1#subsistence
-                    h1#farmer
-            .row(style="margin-bottom: 200px;")
-                .col-md-3
-                .col-md-6
-                    h1.produce-title All Produce
-                    a.card.post(href="/demo-post")
-                        .card-body
-                            h3.post-title 買地瓜贈班蘭葉，與您分享好滋味
-                            p.post-price 黃肉地瓜 $45/斤
-                            p.post-date Sept 5 2021
-                            p.post-detail 這期的地瓜也很好吃，早上吃了兩碗當早餐。地瓜很甜，糖不用加太多，再加入班蘭葉，糖水就很有風味。
-                            img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
-                .col-md-3
-    
+        row(style="margin-bottom: 200px;")
+            .col-md-3
+            .col-md-6
+                h1.order-title Your Orders
+                .card
+                    .card-body
+                        h3.order-number #12345
+                        p.farmer Farmer: Willy
+                        p.date Date: 2021/9/18
+                        p.status Status: sent
+                        //- img.card-img-top(src="/images/post-preview-images/ginger.jpg" alt="Card image cap")
+            .col-md-3

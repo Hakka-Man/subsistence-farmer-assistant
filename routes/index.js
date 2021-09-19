@@ -11,8 +11,29 @@ router.get('/demo-post', function(req, res, next) {
 });
 
 router.get('/enterData', function(req, res, next) {
-  res.render('enterData', { title: 'Express' });
+  res.render('enterData');
 });
+
+router.get('/profile', function(req, res, next) {
+  res.render('userInfo');
+});
+
+router.get('/editInfo', function(req, res, next) {
+  res.render('editUser');
+});
+
+router.get('/orders', function(req, res, next) {
+  res.render('orders');
+});
+
+router.get('/dashboard', function(req, res, next) {
+  res.render('buyerDashboard');
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('about');
+});
+
 
 
 module.exports = router;
