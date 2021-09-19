@@ -41,9 +41,6 @@ const Produce = sequelize.define("produce", {
   recipes: {
       type: Sequelize.TEXT,
   },
-  seller: {
-      type: Sequelize.TEXT,
-  }
 });
 
 module.exports = Produce

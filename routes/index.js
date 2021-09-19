@@ -42,7 +42,6 @@ router.post('/submit', async function (req, res) {
           slogan: req.body.slogan,
           discription: req.body.discription,
           recipes: req.body.recipes,
-          seller: displayName
           },
       ]);
       res.redirect("/test");
