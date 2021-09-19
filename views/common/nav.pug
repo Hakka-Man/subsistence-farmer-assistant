@@ -38,19 +38,20 @@ html(lang='en')
             ul.navbar-nav.ml-auto.nav-right
                 li.nav-item
                     a.nav-link(href="/about") About
-                li.nav-item
-                    a.nav-link(href="/orders") Your Order
-                li.nav-item
-                    a.nav-link(href="/dashboard") Dashboard
-                li.nav-item
-                    a.nav-link(href="/profile") Profile
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/orders") Your Order
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/dashboard") Dashboard
                 if loggedin
                     li.nav-item
                         a.nav-link(href='/profile') Hi&nbsp; #{name}
                 else
                     li.nav-item
                         a.nav-link(href="/auth/google") Sign In
-                li.nav-item
-                    a.nav-link(href="/auth/logout" onclick="signOut();") Log Out
+                if loggedin
+                    li.nav-item
+                        a.nav-link(href="/auth/logout" onclick="signOut();") Log Out
 //- .g-signin2(data-onsuccess="onSignIn")
 //- a(href="#" ) Sign out
